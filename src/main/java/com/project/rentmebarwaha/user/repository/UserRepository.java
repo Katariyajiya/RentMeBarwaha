@@ -18,6 +18,10 @@ public interface UserRepository extends JpaRepository<User, UUID> {
 
     Optional<User> findByGoogleIdAndDeletedAtIsNull(String googleId);
 
+    org.springframework.data.domain.Page<User> findByDeletedAtIsNull(org.springframework.data.domain.Pageable pageable);
+
+    org.springframework.data.domain.Page<User> findByRoleAndDeletedAtIsNull(com.project.rentmebarwaha.user.entity.Role role, org.springframework.data.domain.Pageable pageable);
+
     boolean existsByPhoneAndDeletedAtIsNull(String phone);
 
     boolean existsByEmailAndDeletedAtIsNull(String email);

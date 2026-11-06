@@ -24,6 +24,8 @@ public interface PropertyRepository extends JpaRepository<Property, UUID>, JpaSp
 
     Page<Property> findByOwnerIdAndStatusAndDeletedAtIsNull(UUID ownerId, PropertyStatus status, Pageable pageable);
 
+    Page<Property> findByStatusAndDeletedAtIsNull(PropertyStatus status, Pageable pageable);
+
     long countByOwnerIdAndStatusAndDeletedAtIsNull(UUID ownerId, PropertyStatus status);
 
     long countByOwnerIdAndDeletedAtIsNull(UUID ownerId);
