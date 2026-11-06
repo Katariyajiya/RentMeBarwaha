@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/nestearth_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+  flyway:
+    enabled: true
+
+nestearth:
+  seed:
+    enabled: ${SEED_DATA_ENABLED:true}
+  storage:
+    provider: local
+  messaging:
+    provider: log
+
+logging:
+  level:
+    com.nestearth: DEBUG
+    org.springframework.security: INFO
